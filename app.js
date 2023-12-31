@@ -1,8 +1,8 @@
 const express = require('express');
 const axios = require('axios');
-const cheerio = require('cheerio');
-const whois = require('whois');
-const dns = require('dns');
+// const cheerio = require('cheerio');
+// const whois = require('whois');
+// const dns = require('dns');
 
 const app = express();
 const port = 3000;
@@ -74,3 +74,5 @@ async function getDomainInfo(url) {
 app.listen(port, () => {
   console.log(`Servidor API REST en http://localhost:${port}`);
 });
+
+
