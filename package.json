@@ -2,10 +2,10 @@
   "name": "royal-holidays",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "lint": "eslint"
   },
   "keywords": [],
@@ -19,10 +19,16 @@
     "prettier": "^2.8.8"
   },
   "dependencies": {
+    "@extractus/article-extractor": "^8.0.4",
+    "@hapi/boom": "^10.0.1",
     "axios": "^1.6.3",
     "cheerio": "^1.0.0-rc.12",
     "dns": "^0.2.2",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.35.2",
     "whois": "^2.14.0"
   }
 }
