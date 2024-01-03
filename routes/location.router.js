@@ -1,14 +1,14 @@
 import express from 'express';
-import CompanyServices from './../services/company.services.js';
+import LocationServices from './../services/location.services.js';
 
 const router = express.Router();
-const service = new CompanyServices();
+const service = new LocationServices();
 
 
 router.get('/', async (req, res, next) => {
   try{
-    const company = await service.find();
-    res.json(company);
+    const location = await service.find();
+    res.json(location);
   } catch (error) {
     next(error);
   }
@@ -17,8 +17,8 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try{
     const { id } = req.params;
-    const company = await service.findOne(id);
-    res.json(company);
+    const location = await service.findOne(id);
+    res.json(location);
 
   } catch (error) {
     next(error);
@@ -28,8 +28,8 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try{
     const body = req.body;
-    const newCompany = await service.create(body);
-    res.status(201).json(newCompany)
+    const newLocation = await service.create(body);
+    res.status(201).json(newLocation)
   } catch (error) {
     next(error);
   }
@@ -39,8 +39,8 @@ router.patch('/:id', async (req, res, next) => {
   try{
     const { id } = req.params;
     const body = req.body;
-    const updatedCompany = await service.update(id, body);
-    res.json(updatedCompany);
+    const updatedLocation = await service.update(id, body);
+    res.json(updatedLocation);
   } catch (error) {
     next(error);
   }

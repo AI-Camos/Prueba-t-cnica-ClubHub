@@ -13,13 +13,11 @@ export const LocationSchema = {
   country: {
     type: DataTypes.STRING(128),
     allowNull: false,
-    unique: false
   },
 
   state: {
     type: DataTypes.STRING(128),
     allowNull: false,
-    unique: true
   },
 
   city:{
@@ -35,7 +33,6 @@ export const LocationSchema = {
   zip_code: {
     type: DataTypes.STRING(128),
     allowNull: false,
-    unique: true
   }
 
 }
