@@ -1,5 +1,5 @@
-const express = require('express');
-const FranchisesServices = require('./../services/franchises.service');
+import express from 'express';
+import FranchisesServices from './../services/franchises.service.js';
 
 const router = express.Router();
 const service = new FranchisesServices();
@@ -56,4 +56,4 @@ router.delete('/:id', async(req, res, next) => {
   }
 })
 
-module.exports = router;
+export default router;

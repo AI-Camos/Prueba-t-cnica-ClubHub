@@ -1,4 +1,6 @@
-require('dotenv').config();
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 
 const config = {
@@ -11,4 +13,4 @@ const config = {
   dbPort: process.env.DB_PORT,
 };
 
-module.exports = { config };
+export default config;

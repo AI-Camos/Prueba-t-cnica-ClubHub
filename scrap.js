@@ -1,20 +1,22 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+import axios from 'axios';
+// import cheerio = require('cheerio');
+import { extract } from '@extractus/article-extractor';
 
-import('./scrapper.mjs').then((scrapperModule) => {
-  // Accede a la función exportada
-  const obtenerArticulo = scrapperModule.obtenerArticulo;
+// import('./scrapper.mjs').then((scrapperModule) => {
+//   // Accede a la función exportada
+//   const obtenerArticulo = scrapperModule.obtenerArticulo;
 
-  // Define una función en tu archivo .js que recibe una URL
-  async function scrapeWebsite(url) {
-    try {
-      // Llama a la función exportada del archivo .mjs
-      await obtenerArticulo(url);
-    } catch (error) {
-      console.error('Error al hacer la consulta:', error);
-    }
-  }
-
+//   // Define una función en tu archivo .js que recibe una URL
+//   async function scrapeWebsite(url) {
+//     try {
+//       // Llama a la función exportada del archivo .mjs
+//       const article = await obtenerArticulo(url);
+//       return
+//     } catch (error) {
+//       console.error('Error al hacer la consulta:', error);
+//     }
+//   }
+// });
 
 // // Función para extraer información del sitio web
 // async function scrapeWebsite(url) {
@@ -62,11 +64,13 @@ async function processFranchises(franchises) {
 
     // Realizar las operaciones necesarias con las funciones definidas anteriormente
     const websiteAvailability = await validateWebsiteAvailability(url);
-    const websiteInfo = await scrapeWebsite(url);
-    const sslInfo = await getSSLInfo(url);
 
+    // const websiteInfo = await scrapeWebsite(url);
+    const sslInfo = await getSSLInfo(url);
+    const article = await extract(url);
+    console.log("5")
     console.log('Disponibilidad del sitio web:', websiteAvailability);
-    console.log('Información del sitio web:', websiteInfo);
+    console.log('Información del sitio web:', article);
     console.log('Información de SSL Labs:', sslInfo);
     console.log('---');
   }
@@ -104,7 +108,7 @@ const clubhubData = {
   "franchises": [
       {
           "name": "Park royal",
-          "url": "www.park-royalhotels.com",
+          "url": "https://www.park-royalhotels.com",
           "location": {
               "city": "Cancun",
               "Country": "Mexico",
@@ -114,7 +118,7 @@ const clubhubData = {
       },
       {
           "name": "Marriot",
-          "url": "www.marriott.com",
+          "url": "https://www.marriott.com",
           "location": {
               "city": "Miami",
               "Country": "United States",

@@ -1,4 +1,4 @@
-const { Client } = require('pg');
+import { Client } from 'pg';
 
 async function getConnection(){
   const client = new Client({
@@ -12,4 +12,4 @@ async function getConnection(){
   return client;
 }
 
-module.exports = getConnection;
+export default getConnection;

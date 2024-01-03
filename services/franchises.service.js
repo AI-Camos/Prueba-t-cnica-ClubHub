@@ -1,5 +1,5 @@
-const { models } = require('../libs/sequelize');
-const boom = require('@hapi/boom');
+import models from '../libs/sequelize.js';
+import boom from '@hapi/boom';
 
 
 class FranchisesServices {
@@ -36,4 +36,4 @@ class FranchisesServices {
   }
 };
 
-module.exports = FranchisesServices;
+export default FranchisesServices;

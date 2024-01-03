@@ -1,6 +1,6 @@
-const express = require('express');
-const franchisesRouter = require('./franchises.router');
-const companyRouter = require('./company.router');
+import express from 'express';
+import franchisesRouter from './franchises.router.js';
+import companyRouter from './company.router.js';
 
 function routerApi(app) {
   const router = express.Router();
@@ -9,4 +9,4 @@ function routerApi(app) {
   router.use('/company', companyRouter);
 };
 
-module.exports = routerApi;
+export default routerApi;

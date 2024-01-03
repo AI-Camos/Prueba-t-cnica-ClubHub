@@ -1,7 +1,7 @@
-const express = require('express');
-const routerApi = require('./routes');
+import express from 'express';
+import routerApi from './routes/index.js';
 
-const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middleware/error.handler')
+import { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } from './middleware/error.handler.js'
 const app = express();
 const port = 3000;
 

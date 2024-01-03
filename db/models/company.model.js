@@ -1,8 +1,8 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 
-export const FRANCHISES_TABLE = 'franchises';
+export const COMPANY_TABLE = 'company';
 
-export const FranchisesSchema = {
+export const CompanySchema = {
   id: {
     type: DataTypes.UUID,
     allowNull: false,
@@ -15,34 +15,37 @@ export const FranchisesSchema = {
     allowNull: false,
   },
 
-  title: {
+  name: {
     type: DataTypes.STRING(128),
     allowNull: false,
     unique: false
   },
 
-  site_name: {
+  tax_number: {
     type: DataTypes.STRING(128),
     allowNull: false,
     unique: true
   },
 
-  description:{
-    type: DataTypes.STRING(512),
+  first_name:{
+    type: DataTypes.STRING(128),
     allowNull: false,
-    unique: false
   },
 
-  image: {
-    type: DataTypes.STRING(256),
+  last_name: {
+    type: DataTypes.STRING(128),
+    allowNull: false,
+  },
+
+  email: {
+    type: DataTypes.STRING(128),
     allowNull: false,
     unique: true
   },
 
-  url: {
-    type: DataTypes.STRING(256),
+  phone: {
+    type: DataTypes.STRING(32),
     allowNull: false,
-    unique: true
   },
 
   location_id: {
@@ -59,7 +62,7 @@ export const FranchisesSchema = {
 
 }
 
-export class Franchises extends Model {
+export class Company extends Model {
   static associate() {
     //associate
   }
@@ -67,8 +70,8 @@ export class Franchises extends Model {
   static config(sequelize){
     return {
       sequelize,
-      tableName: FRANCHISES_TABLE,
-      modelName: 'Franchises',
+      tableName: COMPANY_TABLE,
+      modelName: 'Company',
       timestamps: false
     }
   }

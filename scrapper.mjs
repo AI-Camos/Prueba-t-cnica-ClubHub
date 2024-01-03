@@ -2,12 +2,9 @@
 
 import { extract } from '@extractus/article-extractor';
 
-async function obtenerArticulo(url) {
-  try {
-    const article = await extract(url);
-    console.log(article);
-  } catch (error) {
-    console.error('Error al extraer el artículo:', error);
-  }
+
+function obtenerArticulo(url) {
+    return extract(url);
 }
-export { obtenerArticulo };
+
+module.exports = { obtenerArticulo };
