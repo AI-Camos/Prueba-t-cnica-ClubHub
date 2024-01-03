@@ -1,68 +1,44 @@
 'use strict';
 
 
+
 /** @type {import('sequelize-cli').Migration} */
 
 // const { FRANCHISES_TABLE, FranchisesSchema } = require('./../models/franchises.model.js')
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('company', {
+    await queryInterface.createTable('locations', {
       id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         allowNull: false,
         primaryKey: true,
       },
-      name: {
+      country: {
         type: Sequelize.STRING(64),
         allowNull: false,
       },
-      tax_number: {
+      address: {
         type: Sequelize.STRING(64),
         allowNull: false,
       },
-      location_id: {
-        type: Sequelize.UUID,
-        allowNull: false,
-        references: {
-          model: 'locations',
-          key: 'id',
-        },
-      },
-      first_name: {
+      zip_code: {
         type: Sequelize.STRING(64),
         allowNull: false,
       },
-      last_name: {
+      state: {
         type: Sequelize.STRING(64),
         allowNull: false,
       },
-      email: {
+      city: {
         type: Sequelize.STRING(64),
         allowNull: false,
       },
-      phone: {
-        type: Sequelize.STRING(64),
-        allowNull: false,
-      },
-    });
-
-    await queryInterface.addConstraint('company', {
-      fields: ['location_id'],
-      type: 'foreign key',
-      name: 'fk_location',
-      references: {
-        table: 'locations',
-        field: 'id',
-      },
-      onDelete: 'CASCADE',
-      onUpdate: 'CASCADE',
     });
   },
 
   async down (queryInterface) {
-        await queryInterface.dropTable('company');
+    await queryInterface.dropTable('location');
   }
 };
-

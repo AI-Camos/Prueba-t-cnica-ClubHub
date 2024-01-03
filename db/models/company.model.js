@@ -1,65 +1,46 @@
-import { Model, DataTypes, Sequelize } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
 
 export const COMPANY_TABLE = 'company';
 
 export const CompanySchema = {
   id: {
-    type: DataTypes.UUID,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4,
     allowNull: false,
     primaryKey: true,
-    defaultValue: DataTypes.UUIDV4
   },
-
-  company_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-
   name: {
-    type: DataTypes.STRING(128),
+    type: Sequelize.STRING(64),
     allowNull: false,
-    unique: false
   },
-
   tax_number: {
-    type: DataTypes.STRING(128),
-    allowNull: false,
-    unique: true
-  },
-
-  first_name:{
-    type: DataTypes.STRING(128),
+    type: Sequelize.STRING(64),
     allowNull: false,
   },
-
-  last_name: {
-    type: DataTypes.STRING(128),
-    allowNull: false,
-  },
-
-  email: {
-    type: DataTypes.STRING(128),
-    allowNull: false,
-    unique: true
-  },
-
-  phone: {
-    type: DataTypes.STRING(32),
-    allowNull: false,
-  },
-
   location_id: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.UUID,
+    allowNull: false,
+    references: {
+      model: 'locations',
+      key: 'id',
+    },
+  },
+  first_name: {
+    type: Sequelize.STRING(64),
     allowNull: false,
   },
-
-  createdAt:{
-    type:DataTypes.DATE,
-    defaultValue: Sequelize.NOW,
+  last_name: {
+    type: Sequelize.STRING(64),
     allowNull: false,
-    field: 'create_at'
-  }
-
+  },
+  email: {
+    type: Sequelize.STRING(64),
+    allowNull: false,
+  },
+  phone: {
+    type: Sequelize.STRING(64),
+    allowNull: false,
+  },
 }
 
 export class Company extends Model {

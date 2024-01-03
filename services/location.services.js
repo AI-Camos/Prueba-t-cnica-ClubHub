@@ -1,4 +1,5 @@
-import models from '../libs/sequelize.js';
+import { Location }  from '../db/models/location.model.js';
+
 import boom from '@hapi/boom';
 
 
@@ -6,17 +7,17 @@ class LocationServices {
   constructor() {}
 
   async create(data) {
-    const newLocation = await models.Location.create(data);
+    const newLocation = await Location.create(data);
     return newLocation;
   }
 
   async find(){
-    const rta = await models.Location.findAll();
+    const rta = await Location.findAll();
     return rta;
   }
 
   async finOne(id) {
-    const location = await models.Location.findByPk(id);
+    const location = await Location.findByPk(id);
     if (!location) {
       throw boom.notFound('Franchise not found');
     }

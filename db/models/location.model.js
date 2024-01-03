@@ -1,40 +1,34 @@
-import { Model, DataTypes } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
 
 export const LOCATION_TABLE = 'location';
 
 export const LocationSchema = {
   id: {
-    type: DataTypes.UUID,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4,
     allowNull: false,
     primaryKey: true,
-    defaultValue: DataTypes.UUIDV4
   },
-
   country: {
-    type: DataTypes.STRING(128),
+    type: Sequelize.STRING(64),
     allowNull: false,
   },
-
-  state: {
-    type: DataTypes.STRING(128),
-    allowNull: false,
-  },
-
-  city:{
-    type: DataTypes.STRING(128),
-    allowNull: false,
-  },
-
   address: {
-    type: DataTypes.STRING(128),
+    type: Sequelize.STRING(64),
     allowNull: false,
   },
-
   zip_code: {
-    type: DataTypes.STRING(128),
+    type: Sequelize.STRING(64),
     allowNull: false,
-  }
-
+  },
+  state: {
+    type: Sequelize.STRING(64),
+    allowNull: false,
+  },
+  city: {
+    type: Sequelize.STRING(64),
+    allowNull: false,
+  },
 }
 
 export class Location extends Model {

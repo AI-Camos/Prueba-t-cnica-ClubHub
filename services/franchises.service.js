@@ -1,4 +1,5 @@
 import models from '../libs/sequelize.js';
+import { Franchises } from '../db/models/franchises.model.js';
 import boom from '@hapi/boom';
 
 
@@ -11,7 +12,8 @@ class FranchisesServices {
   }
 
   async find(){
-    const rta = await models.Franchises.findAll();
+    console.log(models);
+    const rta = await Franchises.findAll();
     return rta;
   }
 

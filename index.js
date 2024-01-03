@@ -11,13 +11,6 @@ app.get('/', (req, res) => {
   res.send('Hola')
 })
 
-app.get('/product', (req, res) => {
-  res.json({
-    name: 'Monitor de PC',
-    price: 1000
-  });
-});
-
 routerApi(app);
 
 app.use(logErrors);

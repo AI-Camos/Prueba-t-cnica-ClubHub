@@ -1,67 +1,75 @@
-import { Model, DataTypes, Sequelize } from 'sequelize';
+import { Model, Sequelize } from 'sequelize';
 
-export const FRANCHISES_TABLE = 'franchises';
+export const FRANCHISES_TABLE = 'franchise';
 
 export const FranchisesSchema = {
   id: {
-    type: DataTypes.UUID,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4,
     allowNull: false,
     primaryKey: true,
-    defaultValue: DataTypes.UUIDV4
   },
-
   company_id: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.UUID,
     allowNull: false,
+    references: {
+      model: 'company',
+      key: 'id',
+    },
   },
-
   title: {
-    type: DataTypes.STRING(128),
+    type: Sequelize.STRING(128),
     allowNull: false,
-    unique: false
   },
-
   site_name: {
-    type: DataTypes.STRING(128),
+    type: Sequelize.STRING(128),
     allowNull: false,
-    unique: true
   },
-
-  description:{
-    type: DataTypes.STRING(512),
+  description: {
+    type: Sequelize.STRING(512),
     allowNull: false,
-    unique: false
   },
-
   image: {
-    type: DataTypes.STRING(256),
+    type: Sequelize.STRING(256),
     allowNull: false,
-    unique: true
   },
-
   url: {
-    type: DataTypes.STRING(256),
+    type: Sequelize.STRING(256),
     allowNull: false,
-    unique: true
   },
-
+  protocol: {
+    type: Sequelize.STRING(16),
+    allowNull: false,
+  },
+  domain_jumps: {
+    type: Sequelize.SMALLINT,
+    allowNull: false,
+  },
+  server_names: {
+    type: Sequelize.ARRAY(Sequelize.TEXT),
+    allowNull: false,
+  },
+  registrant_name: {
+    type: Sequelize.STRING(128),
+    allowNull: false,
+  },
+  registrant_email: {
+    type: Sequelize.STRING(128),
+    allowNull: false,
+  },
   location_id: {
-    type: DataTypes.INTEGER,
+    type: Sequelize.UUID,
     allowNull: false,
+    references: {
+      model: 'locations',
+      key: 'id',
+    },
   },
-
-  createdAt:{
-    type:DataTypes.DATE,
-    defaultValue: Sequelize.NOW,
-    allowNull: false,
-    field: 'create_at'
-  }
-
 }
 
 export class Franchises extends Model {
   static associate() {
-    //associate
+    // this.belongsTo(models.location, {as: 'Location'})
   }
 
   static config(sequelize){
