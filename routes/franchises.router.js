@@ -7,9 +7,7 @@ const service = new FranchisesServices();
 
 router.get('/', async (req, res, next) => {
   try{
-    console.log('franchise')
     const franchise = await service.find();
-    console.log('franchise', franchise)
     res.json(franchise);
   } catch (error) {
     next(error);

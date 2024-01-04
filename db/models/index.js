@@ -6,6 +6,10 @@ function setupModels(sequelize) {
   Franchises.init(FranchisesSchema, Franchises.config(sequelize));
   Location.init(LocationSchema, Location.config(sequelize));
   Company.init(CompanySchema, Company.config(sequelize));
+
+
+  Franchises.associate(sequelize.models);
+  Company.associate(sequelize.models);
 };
 
 export default setupModels;

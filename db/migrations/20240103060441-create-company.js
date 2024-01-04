@@ -14,14 +14,6 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
       },
-      name: {
-        type: Sequelize.STRING(64),
-        allowNull: false,
-      },
-      tax_number: {
-        type: Sequelize.STRING(64),
-        allowNull: false,
-      },
       location_id: {
         type: Sequelize.UUID,
         allowNull: false,
@@ -56,7 +48,7 @@ module.exports = {
         table: 'locations',
         field: 'id',
       },
-      onDelete: 'CASCADE',
+      onDelete: 'SET NULL',
       onUpdate: 'CASCADE',
     });
   },

@@ -1,6 +1,6 @@
 import { Model, Sequelize } from 'sequelize';
 
-export const LOCATION_TABLE = 'location';
+export const LOCATION_TABLE = 'locations';
 
 export const LocationSchema = {
   id: {
@@ -40,7 +40,7 @@ export class Location extends Model {
     return {
       sequelize,
       tableName: LOCATION_TABLE,
-      modelName: 'Location',
+      modelName: 'locations',
       timestamps: false
     }
   }

@@ -19,7 +19,7 @@ class LocationServices {
   async finOne(id) {
     const location = await Location.findByPk(id);
     if (!location) {
-      throw boom.notFound('Franchise not found');
+      throw boom.notFound('Location not found');
     }
     return location;
   }

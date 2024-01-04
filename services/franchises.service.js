@@ -7,12 +7,11 @@ class FranchisesServices {
   constructor() {}
 
   async create(data) {
-    const newFranchises = await models.Franchises.create(data);
+    const newFranchises = await Franchises.create(data);
     return newFranchises;
   }
 
   async find(){
-    console.log(models);
     const rta = await Franchises.findAll();
     return rta;
   }

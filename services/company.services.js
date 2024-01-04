@@ -1,4 +1,4 @@
-
+import models from '../libs/sequelize.js';
 import { Company }  from '../db/models/company.model.js';
 
 import boom from '@hapi/boom';
@@ -18,9 +18,9 @@ class CompanyServices {
   }
 
   async finOne(id) {
-    const company = await Company.findByPk(id);
+    const company = await models.Company.findByPk(id);
     if (!company) {
-      throw boom.notFound('Franchise not found');
+      throw boom.notFound('Company not found');
     }
     return company;
   }
