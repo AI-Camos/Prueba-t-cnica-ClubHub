@@ -1,4 +1,3 @@
-import models from '../libs/sequelize.js';
 import { Franchises } from '../db/models/franchises.model.js';
 import boom from '@hapi/boom';
 
@@ -17,7 +16,7 @@ class FranchisesServices {
   }
 
   async finOne(id) {
-    const franchise = await models.Franchises.findByPk(id);
+    const franchise = await Franchises.findByPk(id);
     if (!franchise) {
       throw boom.notFound('Franchise not found');
     }

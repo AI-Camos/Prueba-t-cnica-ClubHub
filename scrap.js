@@ -2,40 +2,6 @@ import axios from 'axios';
 // import cheerio = require('cheerio');
 import { extract } from '@extractus/article-extractor';
 
-// import('./scrapper.mjs').then((scrapperModule) => {
-//   // Accede a la función exportada
-//   const obtenerArticulo = scrapperModule.obtenerArticulo;
-
-//   // Define una función en tu archivo .js que recibe una URL
-//   async function scrapeWebsite(url) {
-//     try {
-//       // Llama a la función exportada del archivo .mjs
-//       const article = await obtenerArticulo(url);
-//       return
-//     } catch (error) {
-//       console.error('Error al hacer la consulta:', error);
-//     }
-//   }
-// });
-
-// // Función para extraer información del sitio web
-// async function scrapeWebsite(url) {
-//   try {
-//     await obtenerArticulo(url);
-//     // const response = await axios.get(url);
-//     // const $ = cheerio.load(response.data);
-
-//     // // Extraer la URL de la imagen, logo o icono de la compañía
-//     // const companyImageUrl = $('meta[property="og:image"]').attr('content');
-
-//     // return { companyImageUrl };
-//   } catch (error) {
-//     console.error('Error al hacer web scraping:', error.message);
-//     return {};
-//   }
-// }
-
-// Función para validar la disponibilidad del sitio web
 async function validateWebsiteAvailability(url) {
   try {
     const response = await axios.get(url);
